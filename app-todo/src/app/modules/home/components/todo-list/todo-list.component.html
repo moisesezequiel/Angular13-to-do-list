@@ -1,10 +1,10 @@
 <section [ngClass]="{'loading':!taskList.length}">
-<ul *ngIf="taskList.length">
+<ul>
 <li *ngFor="let item of taskList; let i = index">
 <input type="checkbox" [(ngModel)]="item.checked">
 <input type="text"[(ngModel)]="item.task" >
 
-<button>
+<button (click)="deleteItem(i)">
   <img src="assets/iconTrash.svg" alt="">
 </button>
 
@@ -15,4 +15,4 @@
 </section>
 
 <app-todo-input-add-itens></app-todo-input-add-itens>
-<app-todo-button-delete-all *ngIf="taskList.length"></app-todo-button-delete-all>
+<app-todo-button-delete-all *ngIf="taskList.length" (click)="deleteAll()"></app-todo-button-delete-all>
