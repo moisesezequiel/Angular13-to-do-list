@@ -8,10 +8,7 @@ import { TaskList } from '../../model/task-list';
 })
 export class TodoListComponent implements OnInit {
 
-  public taskList: Array<TaskList>=[
-    {task:"new Task", checked:true},
-    {task:"Task 2", checked:true}
-  ];
+  public taskList: Array<TaskList>=[];
   constructor() { }
 
   ngOnInit(): void {
@@ -27,5 +24,9 @@ export class TodoListComponent implements OnInit {
       this.taskList = [];
     }
 
+  }
+
+  public setEmitTaskList(event:string){
+    this.taskList.push({task:event,checked:false})
   }
 }
