@@ -2,7 +2,7 @@
 <ul>
 <li *ngFor="let item of taskList; let i = index">
 <input type="checkbox" [(ngModel)]="item.checked">
-<input type="text"[(ngModel)]="item.task" [ngClass]="{'checked': item.checked}" >
+<input type="text"[(ngModel)]="item.task" (keyup)="validationInput(item.task,i)" [ngClass]="{'checked': item.checked}" >
 
 <button (click)="deleteItem(i)">
   <img src="assets/iconTrash.svg" alt="">
